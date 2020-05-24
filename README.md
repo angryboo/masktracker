@@ -1,68 +1,91 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 코로나 마스크 재고 현황 지도 웹 어플리케이션
 
-## Available Scripts
+​
+2020년 4월 React, JS 기반 프로젝트입니다.
+​
+<br>
+​
 
-In the project directory, you can run:
+## 주제
 
-### `yarn start`
+​
+약국별 마스크 재고 현황을 지도에 표시해주는 웹 어플리케이션입니다.
+​
+<br>
+​
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 참여 인원
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+​
+<팀명>
+​
+송부용, 송승은
+​
+<br>
+​
 
-### `yarn test`
+## MVP
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+​
 
-### `yarn build`
+### 1차 목표
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+​
+**지도 API를 가져와 화면에 렌더링하고, 좌표마커를 표시한다.**
+​
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- 판매처 별 공적 마스크 판매처 정보제공 API를 가져온다.
+- 마스크 API의 좌표정보대로 지도에 마커로 표시한다.
+- 마커를 수량 별로 다르게 표시한다.
+- 기본 화면 구성, 레이아웃을 잡는다.
+  ​
+  <br>
+  ​
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 2차 목표
 
-### `yarn eject`
+​
+**지역으로 검색하여 지도를 표시하고, 반경을 중심으로 마커를 표시한다.**
+​
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- 지도 API 화면에 반경 내 판매처 정보를 가져온다.
+- 가져온 판매처 정보를 수량별로 마커로 표시한다.
+- 표시한 판매처를 리스트화 하여 목록으로 표시한다.
+- 검색창을 만들어 지역을 검색하면 검색한 지역의 지도로 이동하도록 구현한다.
+  ​
+  <br>
+  ​
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 3차 목표 ( Option )
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+​
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- HTML5 API Geolocation - 현재 위치 정보를 구현한다.
+- 판매처 목록을 현위치와의 거리별, 수량별로 정렬한다.
+  ​
+  <br>
+  ​
 
-## Learn More
+## 사용 기술
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+​
+html, css, javascript, react, github, axios
+​
+<br>
+​
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 디렉토리 구조
 
-### Code Splitting
+​
+작업개시 후 작성
+​
+<br>
+​
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Copyrights
 
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+​
+Unauthorized copying of this file, via any medium is strictly prohibited Proprietary and confidential. Written by 송승은, 송부용 [buyongsong@gmail.com](mailto:buyongsong@gmail.com), April 2020 This source has referenced github user @heejinlee07's repository Copyright (C) 송승은, 송부용 - All Rights Reserved
+​
+<br>
+Collapse
