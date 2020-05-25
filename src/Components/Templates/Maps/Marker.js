@@ -6,9 +6,11 @@
 import React, { useEffect, useContext } from 'react';
 import '../../Pages/Main.css';
 import { MapContext } from '../../../ContextAPI/MapContext';
+import { SearchContext } from '../../../ContextAPI/SearchContext';
 
 function Marker({ map }) {
   const { state } = useContext(MapContext);
+  const { selectMarker } = useContext(SearchContext);
   const { kakao } = window;
 
   let imageSrc = '';
@@ -82,11 +84,18 @@ function Marker({ map }) {
 
     // let iwContent = '';
 
-    // const iwRemoveable = true;
 
-    // markers.forEach((marker) => {
-    //   kakao.maps.event.addListener(marker, 'click', () => {
-    //     iwContent = `<div class="popup">${marker.mc}</div>`;
+    markers.forEach((marker) => {
+      kakao.maps.event.addListener(marker, 'click', () => {
+        // const obj = { entX: marker.k.Ga, entY: marker.k.Ha };
+        selectMarker(marker.mc);
+        console.log(marker);
+        iwContent = marker.mc;
+        const infoWindow = new kakao.maps.InfoWindow({
+          content: iwContent,
+          removable: iwRemoveable,
+        });
+
 
     //     const infoWindow = new kakao.maps.InfoWindow({
     //       content: `<strong>${iwContent}</strong>`,

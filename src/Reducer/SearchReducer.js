@@ -3,6 +3,7 @@ export const initialState = {
   searchMode: false,
   selectLocation: { latitude: null, longitude: null },
   searchAddress: [],
+  selectMarker: '',
   error: {
     state: false,
     message: null,
@@ -37,6 +38,11 @@ export const searchReducer = (state, action) => {
       return {
         ...state,
         selectLocation: { ...action.selectLocation },
+      };
+    case 'MARKER':
+      return {
+        ...state,
+        selectMarker: action.selectMarker,
       };
     case 'ERROR':
       return {
