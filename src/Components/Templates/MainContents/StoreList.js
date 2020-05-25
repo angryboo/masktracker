@@ -26,15 +26,19 @@ function StoreList() {
     if (store.remain_stat === 'plenty') {
       store.stock = '100개 이상';
       store.sort = 1;
+      store.bgcolor = '#7295f1';
     } else if (store.remain_stat === 'some') {
       store.stock = '99개 이하';
       store.sort = 2;
+      store.bgcolor = '#48bcc6';
     } else if (store.remain_stat === 'few') {
       store.stock = '30개 이하';
       store.sort = 3;
+      store.bgcolor = '#ffa840';
     } else {
       store.stock = '판매중단';
       store.sort = 4;
+      store.bgcolor = '#ccc';
     }
   });
 
@@ -56,7 +60,7 @@ function StoreList() {
       </div>
       <ul className="MaskList">
         {storeList.length ? (
-          storeList.map(({ code, addr, name, stock, stock_at }) => (
+          storeList.map(({ code, addr, name, stock, stock_at, bgcolor }) => (
             <li
               id={code}
               key={code}
@@ -65,9 +69,14 @@ function StoreList() {
               onClick={storeDetail}
             >
               <h4>{name}</h4>
-              <div className="Stock">
+              <div
+                className="Stock"
+                style={{
+                  backgroundColor: `${bgcolor}`,
+                }}
+              >
                 <img
-                  src="https://i7.pngguru.com/preview/886/128/891/surgical-mask-emoji-surgery-health-care-crying-emoji.jpg"
+                  src="https://raw.githubusercontent.com/songseungeun/masktracker/feature-content/src/Components/Img/mask-emoji.png"
                   alt="mask"
                   className="Mask-emoji"
                 />

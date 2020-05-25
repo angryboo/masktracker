@@ -19,6 +19,9 @@ function Level({ map }) {
 
   return (
     <div className="Level">
+      <button type="button" className="Location" onClick={onZoomIn}>
+        <i className="fas fa-location-arrow" />
+      </button>
       <button type="button" className="ZoomIn" onClick={onZoomIn}>
         +
       </button>
