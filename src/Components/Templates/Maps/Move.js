@@ -21,7 +21,8 @@ function Move({ map, moveToSearch }) {
 
     // panTo();
     return () => {};
-  }, [map, moveToSearch, searchState.selectLocation]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchState.selectLocation]);
 
   return <></>;
 }
