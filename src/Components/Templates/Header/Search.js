@@ -4,7 +4,9 @@ import { SearchContext } from '../../../ContextAPI/SearchContext';
 
 function Search() {
   const { searchState, getAddress, changeInput } = useContext(SearchContext);
+
   const inputRef = useRef();
+
   const handleChange = (keyword) => {
     changeInput(keyword);
   };
@@ -24,6 +26,7 @@ function Search() {
     if (code !== 13 || !inputRef.current.value) return;
     getAddress(searchState.inputState);
     inputRef.current.value = '';
+    // event();
   };
 
   return (
