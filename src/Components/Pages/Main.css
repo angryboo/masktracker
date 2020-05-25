@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://use.fontawesome.com/releases/v5.5.0/css/all.css');
 
 body * {
   padding: 0;
@@ -132,28 +133,43 @@ body * {
   background-color: #fff;
   box-shadow: 5px 5px 5px 1px rgba(152, 152, 152, 0.1);
   cursor: pointer;
+  border-radius: 3px;
   transition: height 300ms;
-  height: 120px;
 }
 .StoreActive {
   transition: height 300ms;
   height: 300px;
 }
-.Store .Mask-emoji {
-  width: 24px;
+
+.Store h4 {
+  display: block;
+  /* width: 150px; */
+  height: 35px;
+  margin-right: 10px;
+  font-size: 22px;
+  /* background-color: salmon; */
+  /* overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;  */
+}
+.Stock {
+  display: inline-block;
+  /* background-color: salmon; */
+  padding: 2px 8px;
+  margin: 4px 0 7px 0;
+  border-radius: 3px;
+}
+.Mask-emoji {
+  width: 21px;
   margin-bottom: -5px;
   margin-right: 8px;
 }
-.Store h4 {
-  display: inline;
-  font-size: 20px;
-  margin-right: 10px;
-}
-.Store .Stock {
+.StockValue {
   font-size: 18px;
   font-weight: 600;
-  
+  color: #fff;
 }
+
 .Store .Date {
   display: block;
   font-size: 14px;
@@ -189,10 +205,7 @@ body * {
   padding: 15px;
   border-radius: 3px;
 }
-.MarkerList li * {
-  display: inline-block;
 
-}
 .MarkerList img {
   width: 30px;
   margin-right: 5px;
@@ -204,23 +217,32 @@ body * {
 .Level {
   position: fixed;
   right: 30px;
-  bottom: 30px;
+  bottom: 130px;
   width: 50px;
   height: 100px;
   z-index: 99;
   /* background-color: #f4f4f4; */
 }
-.Level button {
+
+.Location,
+.ZoomIn,
+.ZoomOut {
   width: 50px;
   height: 50px;
+  padding-bottom: 3px;
   font-size: 35px;
   font-weight: bold;
   cursor: pointer;
-  background-color: #fff;
+  background-color: rgb(27, 40, 83);
   border: 0;
   outline: none;
-  color: #333;
+  color: #fff;
   margin: 3px;
+  border-radius: 60px;
+}
+.Location .fas {
+  font-size: 20px;
+  padding-bottom: 15px;
 }
 /* ----- MOBILE DEVICE ----- */
 @media screen and (max-width: 559px) {
