@@ -56,14 +56,12 @@ const useSearchFetch = () => {
     dispatch({ type: 'LOADING' });
     try {
       const addressData = await address.getAddress(keyword);
-      if (addressData.status === 200) {
+      if (addressData.status === 200 && addressData.data.results.juso.length) {
         dispatch({
           type: 'ADDRESS',
           searchAddress: addressData.data.results.juso,
         });
-        if (addressData.data.results.juso.length) {
-          getSearchLocation(addressData.data.results.juso[0]);
-        }
+        getSearchLocation(addressData.data.results.juso[0]);
       } else {
         dispatch({
           type: 'ERROR',
