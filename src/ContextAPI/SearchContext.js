@@ -8,12 +8,14 @@ export const SearchContext = createContext(null);
 export function SearchProvider({ children }) {
   const [
     searchState,
+    moveToTarget,
     getSearchLocation,
     getAddress,
     changeInput,
   ] = useSearchFetch();
   const ContextValue = {
     searchState,
+    moveToTarget,
     getSearchLocation,
     getAddress,
     changeInput,

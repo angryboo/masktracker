@@ -103,6 +103,7 @@ const useSearchFetch = () => {
 
   return [
     serchState,
+    moveToTarget,
     getSearchLocation,
     getAddress,
     changeInput,

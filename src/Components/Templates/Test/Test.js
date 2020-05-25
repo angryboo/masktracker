@@ -9,7 +9,9 @@ import { token } from '../../../API/Token';
 
 function Main() {
   const { state } = useContext(MapContext);
-  const { searchState, getLocation } = useContext(SearchContext);
+  const { searchState, moveToTarget, getSearchLocation } = useContext(
+    SearchContext,
+  );
 
   const obj = {
     admCd: '1120011500',
@@ -44,11 +46,9 @@ function Main() {
   };
 
   const gps = () => {
-    console.log(
-      navigator.geolocation.getCurrentPosition((position) => {
-        console.log(position);
-      }),
-    );
+    navigator.geolocation.getCurrentPosition((position) => {
+      moveToTarget(position.coords.latitude, position.coords.longitude);
+    });
   };
 
   return (
@@ -91,7 +91,7 @@ function Main() {
       </button>
       <button
         onClick={() => {
-          getLocation(obj);
+          getSearchLocation(obj);
         }}
       >
         좌표 검색
