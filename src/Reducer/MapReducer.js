@@ -1,4 +1,5 @@
 export const initialState = {
+  map: {},
   latitude: 37.544579,
   longitude: 127.056045,
   radius: 500,
@@ -35,6 +36,11 @@ export const mapReducer = (state, action) => {
       return {
         ...state,
         stores: [...action.stores],
+      };
+    case 'SETMAP':
+      return {
+        ...state,
+        map: action.map,
       };
     case 'ERROR':
       return {

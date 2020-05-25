@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, useContext } from 'react';
+// import * as _ from 'lodash';
 import '../../Pages/Main.css';
 import { MapContext } from '../../../ContextAPI/MapContext';
 import Overlay from './Overlay';
@@ -9,7 +10,7 @@ import Level from './Level';
 import MapEvent from './MapEvent';
 
 function Map() {
-  const { getLocation } = useContext(MapContext);
+  const { getLocation, setMap } = useContext(MapContext);
   const [_map, setState] = useState({});
   const { kakao } = window;
   const mapEvent = kakao.maps.event;
@@ -30,7 +31,9 @@ function Map() {
 
     // 맵 드래그 완료 시 3번째 인수로 전달 한 콜백 실행
     mapEvent.addListener(map, 'dragend', callback);
+
     setState({ map });
+    setMap(map);
   }, []);
 
   return (
