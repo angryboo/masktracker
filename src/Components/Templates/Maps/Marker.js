@@ -46,7 +46,6 @@ function Marker({ map }) {
           default:
             imageSrc = defaultMarker;
         }
-        // console.log(store.remain_stat + imageSrc);
 
         const imageSize = new kakao.maps.Size(60, 85);
 
