@@ -4,16 +4,23 @@
 /* eslint-disable camelcase */
 import React, { useEffect, useContext } from 'react';
 import '../../Pages/Main.css';
-// import { MapContext } from '../../../ContextAPI/MapContext';
+import { MapContext } from '../../../ContextAPI/MapContext';
 import { SearchContext } from '../../../ContextAPI/SearchContext';
 
 function StoreListItem({ store }) {
-  // const { state } = useContext(MapContext);
-  const { searchState } = useContext(SearchContext);
+  const { state } = useContext(MapContext);
+  const { searchState, moveToTarget } = useContext(SearchContext);
+
+  const onZoomIn = () => {
+    // const level = state.map.getLevel();
+    state.map.setLevel(1);
+  };
 
   useEffect(() => {
     if (searchState.selectMarker === store.code) {
       console.log(store);
+      moveToTarget(store.lat, store.lng);
+      onZoomIn();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchState.selectMarker]);
