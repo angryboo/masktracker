@@ -8,7 +8,11 @@ body * {
   list-style: none;
   font-family: 'Montserrat', 'Noto Sans KR', sans-serif;
 }
-
+/* .Clearfix::after {
+  display: block;
+  content: '';
+  clear: both;
+} */
 .Header {
   display: flex;
   padding: 14px 30px;
@@ -72,20 +76,19 @@ body * {
 }
 
 .MainContents {
-  width: 35%;
+  width: 370px;
   background: #f4f4f4;
-  float: left;
-  height: 100vh;
   z-index: 99;
 }
 .Radius {
-  padding: 15px 25px;
   display: flex;
+  padding: 15px 15px;
   font-size: 16px;
 }
 .RadiusSelect {
+  width: 70px;
   display: block;
-  padding: 12px 5px 10px 5px;
+  padding: 12px 0px 10px 0px;
   margin: 0 5px;
   color: #666;
 }
@@ -132,7 +135,7 @@ body * {
   transition: height 300ms;
   height: 120px;
 }
-.active {
+.StoreActive {
   transition: height 300ms;
   height: 300px;
 }
@@ -163,18 +166,40 @@ body * {
 }
 .Test {
   width: 250px;
-  height: 150px;
+  height: 50px;
   position: absolute;
   background-color: rgb(255, 240, 209);
-  top: 100px;
+  top: 300px;
   right: 0;
   z-index: 9;
   font-size: 12px;
 }
 #map {
-  width: 65%;
+  width: calc(100% - 370px);
   height: 100vh;
   float: right;
+}
+.MarkerList {
+  position: fixed;
+  top: 69px;
+  right: 0;
+  width: 160px;
+  background-color: rgba(255, 255, 255, .9);
+  z-index: 99;
+  padding: 15px;
+  border-radius: 3px;
+}
+.MarkerList li * {
+  display: inline-block;
+
+}
+.MarkerList img {
+  width: 30px;
+  margin-right: 5px;
+}
+.MarkerName {
+  margin-top: 13px;
+  vertical-align: top;
 }
 .Level {
   position: fixed;
