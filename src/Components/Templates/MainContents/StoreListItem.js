@@ -25,18 +25,21 @@ function StoreListItem({ store }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchState.selectMarker]);
 
-  const $StoreList = document.querySelector('.MaskList');
+  // const $StoreList = document.querySelector('.MaskList');
 
-  const storeDetail = ({ target }) => {
-    [...$StoreList.children].forEach(($Store) => {
-      $Store.classList.toggle('StoreActive', $Store === target);
-    });
-  };
+  // const storeDetail = ({ target }) => {
+  //   [...$StoreList.children].forEach(($Store) => {
+  //     $Store.classList.toggle('StoreActive', $Store === target);
+  //   });
+  // };
 
   // console.log(storeList);
+
+  // const today = new Date();
+  // console.log(today);
   return (
     // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-    <li id={store.code} className="Store" tabIndex="0" onClick={storeDetail}>
+    <li id={store.code} className="Store">
       <h4>{store.name}</h4>
       <div
         className="Stock"
