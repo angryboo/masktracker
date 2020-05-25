@@ -3,6 +3,7 @@ import { MapContext } from '../ContextAPI/MapContext';
 import { initialState, searchReducer } from '../Reducer/SearchReducer';
 import { address } from '../API/AddressAPI';
 import { coordinates } from '../API/CoordinatesAPI';
+// import { transcoord } from '../API/TransCoordAPI';
 
 const useSearchFetch = () => {
   const [serchState, dispatch] = useReducer(searchReducer, initialState);
@@ -19,6 +20,7 @@ const useSearchFetch = () => {
     dispatch({ type: 'LOADING' });
     try {
       const locationData = await coordinates.getCoordinates(obj);
+      console.log(locationData);
       if (locationData.status === 200) {
         console.log(locationData);
         moveToTarget(
@@ -99,6 +101,14 @@ const useSearchFetch = () => {
     });
   };
 
+  const selectMarker = async (code) => {
+    console.log(code);
+    dispatch({
+      type: 'MARKER',
+      selectMarker: code,
+    });
+  };
+
   return [
     serchState,
     moveToTarget,
@@ -106,6 +116,7 @@ const useSearchFetch = () => {
     getAddress,
     changeInput,
     resetLocation,
+    selectMarker,
   ];
 };
 

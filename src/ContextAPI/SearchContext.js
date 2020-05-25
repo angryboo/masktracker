@@ -12,6 +12,8 @@ export function SearchProvider({ children }) {
     getSearchLocation,
     getAddress,
     changeInput,
+    resetLocation,
+    selectMarker,
   ] = useSearchFetch();
   const ContextValue = {
     searchState,
@@ -19,6 +21,8 @@ export function SearchProvider({ children }) {
     getSearchLocation,
     getAddress,
     changeInput,
+    resetLocation,
+    selectMarker,
   };
   return (
     <SearchContext.Provider value={ContextValue}>
