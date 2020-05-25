@@ -40,16 +40,16 @@ function StoreList() {
       <ul className="MaskList">
         {storeList.length ? (
           storeList.map(({ code, addr, name, remain_stat, stock_at }) => (
-            <li key={code} className="store">
+            <li key={code} className="Store">
               <h4>{name}</h4>
               <img
                 src="https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/face-with-medical-mask.png"
                 alt="mask"
-                className="mask-emoji"
+                className="Mask-emoji"
               />
-              <span className="stock">{stockValue(remain_stat)}</span>
-              <span className="date">입고시간 : {stock_at}</span>
-              <span className="addr">{addr}</span>
+              <span className="Stock">{stockValue(remain_stat)}</span>
+              <span className="Date">입고시간 : {stock_at}</span>
+              <span className="Addr">{addr}</span>
             </li>
           ))
         ) : (

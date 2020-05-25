@@ -1,12 +1,7 @@
-/* eslint-disable no-unused-vars */
-import React, { useEffect, useContext } from 'react';
+import React from 'react';
 import '../../Pages/Main.css';
-import { MapContext } from '../../../ContextAPI/MapContext';
 
 function Level({ map }) {
-  const { state } = useContext(MapContext);
-  const { kakao } = window;
-
   const onZoomIn = () => {
     const level = map.getLevel();
     map.setLevel(level - 1);
