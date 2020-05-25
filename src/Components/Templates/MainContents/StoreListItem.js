@@ -22,6 +22,9 @@ function StoreListItem({ store }) {
   // };
 
   // console.log(storeList);
+
+  // const today = new Date();
+  // console.log(today);
   return (
     // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
     <li id={store.code} className="Store">
