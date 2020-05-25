@@ -40,15 +40,12 @@ function StoreList() {
 
   storeList.sort((stockA, stockB) => stockA.sort - stockB.sort);
 
-  // const $storeList = document.querySelectorAll('.store');
+  const $StoreList = document.querySelector('.MaskList');
 
   const storeDetail = ({ target }) => {
-    // $storeList.forEach((store) => {
-    //   if (target.id === store.id) store.classList.toggle('active');
-    // });
-    if (!target.matches('.Store')) return;
-    console.log(target);
-    target.classList.toggle('active');
+    [...$StoreList.children].forEach(($Store) => {
+      $Store.classList.toggle('StoreActive', $Store === target);
+    });
   };
 
   // console.log(storeList);
