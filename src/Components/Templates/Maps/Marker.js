@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable operator-linebreak */
 /* eslint-disable object-curly-newline */
 /* eslint-disable camelcase */
@@ -9,6 +10,18 @@ import { MapContext } from '../../../ContextAPI/MapContext';
 function Marker({ map }) {
   const { state } = useContext(MapContext);
   const { kakao } = window;
+
+  let imageSrc = '';
+
+  const plentyMarker =
+    'https://raw.githubusercontent.com/songseungeun/mask-stores/feature-content/src/img/marker-p.png';
+  const someMarker =
+    'https://raw.githubusercontent.com/songseungeun/mask-stores/feature-content/src/img/marker-s.png';
+  const fewMarker =
+    'https://raw.githubusercontent.com/songseungeun/mask-stores/feature-content/src/img/marker-f.png';
+  const defaultMarker =
+    'https://raw.githubusercontent.com/songseungeun/mask-stores/feature-content/src/img/marker-x.png';
+
   useEffect(() => {
     const markersPosition = state.stores.map(
       ({ name, lat, lng, remain_stat, code }) => ({
@@ -22,17 +35,6 @@ function Marker({ map }) {
     const markers = [];
 
     const generateMaker = (mapObj) => {
-      let imageSrc = '';
-
-      const plentyMarker =
-        'https://raw.githubusercontent.com/songseungeun/mask-stores/feature-content/src/img/marker-p.png';
-      const someMarker =
-        'https://raw.githubusercontent.com/songseungeun/mask-stores/feature-content/src/img/marker-s.png';
-      const fewMarker =
-        'https://raw.githubusercontent.com/songseungeun/mask-stores/feature-content/src/img/marker-f.png';
-      const defaultMarker =
-        'https://raw.githubusercontent.com/songseungeun/mask-stores/feature-content/src/img/marker-x.png';
-
       markersPosition.forEach((store) => {
         switch (store.remain_stat) {
           case 'plenty':
@@ -101,7 +103,28 @@ function Marker({ map }) {
     };
   }, [state.stores]);
 
-  return <></>;
+  return (
+    <>
+      <ul className="MarkerList">
+        <li>
+          <img src={plentyMarker} />
+          <span className="MarkerName">100개 이상</span>
+        </li>
+        <li>
+          <img src={someMarker} />
+          <span className="MarkerName">99개 이하</span>
+        </li>
+        <li>
+          <img src={fewMarker} />
+          <span className="MarkerName">30개 이하</span>
+        </li>
+        <li>
+          <img src={defaultMarker} />
+          <span className="MarkerName">수량없음</span>
+        </li>
+      </ul>
+    </>
+  );
 }
 
 export default Marker;
