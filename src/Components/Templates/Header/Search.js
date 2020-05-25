@@ -12,7 +12,6 @@ function Search() {
   };
   const handleClick = () => {
     if (!inputRef.current.value) return;
-    console.log(searchState);
     getAddress(searchState.inputState);
 
     // const moveLatLon = new kakao.maps.LatLng(33.45058, 126.574942);

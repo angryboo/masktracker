@@ -18,7 +18,6 @@ function StoreListItem({ store }) {
 
   useEffect(() => {
     if (searchState.selectMarker === store.code) {
-      console.log(store);
       moveToTarget(store.lat, store.lng);
       onZoomIn();
     }
