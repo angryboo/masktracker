@@ -9,18 +9,21 @@ body * {
   list-style: none;
   font-family: 'Montserrat', 'Noto Sans KR', sans-serif;
 }
-/* .Clearfix::after {
+.Clearfix::after {
   display: block;
   content: '';
   clear: both;
-} */
+}
 .Header {
-  display: flex;
-  padding: 14px 30px;
+  padding: 14px 30px 5px 30px;
   background-color: rgb(27, 40, 83);
 }
 .Logo {
+  float: left;
+  margin-top: 2px;
   width: 300px;
+  margin-right: 20px;
+  padding-bottom: 10px;
 }
 .Logo h1, h2 {
   display: inline-block;
@@ -36,11 +39,14 @@ body * {
   font-weight: 700;
   letter-spacing: 5px;
   vertical-align: top;
-  margin-top: 11px;
+  margin-top: 6px;
+  color: #ccc;
 }
 
 .Search {
-  width: 500px;
+  float: left;
+  width: calc(100% - 500px);
+  min-width: 450px;
 }
 .Search input{
   padding: 9px;
@@ -57,7 +63,7 @@ body * {
 }
 .Search button {
   width: 80px;
-  padding: 7px;
+  padding: 9px;
   font-size: 15px;
   margin-left: 7px;
   border: 0;
@@ -70,14 +76,18 @@ body * {
   background-color: rgba(255, 255, 255, 1)
 }
 .About {
+  width: 100px;
+  float: right;
   display: inline-block;
   text-align: right;
-  width: 120px;
   color: #fff;
+  /* background-color: salmon; */
+  padding-top: 10px;
 }
 
 .MainContents {
   width: 370px;
+  height: calc(100vh - 65px);
   background: #f4f4f4;
   z-index: 99;
 }
@@ -115,7 +125,7 @@ body * {
 } */
 .MaskListWrapper {
   overflow: auto;
-  height: calc(100vh - 170px);
+  height: calc(100vh - 141px);
 }
 .SearchResult {
   padding: 1px 17px 7px 17px;
@@ -192,7 +202,7 @@ body * {
 }
 #map {
   width: calc(100% - 370px);
-  height: 100vh;
+  height: calc(100vh - 65px);
   float: right;
 }
 .MarkerList {
@@ -216,8 +226,8 @@ body * {
 }
 .Level {
   position: fixed;
-  right: 30px;
-  bottom: 130px;
+  right: 20px;
+  bottom: 90px;
   width: 50px;
   height: 100px;
   z-index: 99;
@@ -244,6 +254,22 @@ body * {
   font-size: 20px;
   padding-bottom: 15px;
 }
+.Level button:hover {
+  background-color: rgb(45, 64, 126);
+}
+/* ----- TABLET DEVICE ----- */
+@media screen and (max-width: 900px) {
+  .About {
+    display: none;
+  }
+  .Search {
+    width: 100%;
+    padding-bottom: 10px;
+  }
+  .MarkerList {
+    top: 120px;
+  }
+}
 /* ----- MOBILE DEVICE ----- */
 @media screen and (max-width: 559px) {
   .MainContents {
@@ -255,15 +281,25 @@ body * {
   }
   .Logo {
     width: 100%;
+    padding-bottom: 10px;
   }
   .Search {
     width: 100%;
+    min-width: 100%;
   }
-  .about {
+
+  .About {
     display: none;
   }
   #map {
     width: 100%;
-    height: 60vh;
+    height: 55vh;
+  }
+  .MarkerList {
+    top: 120px;
+  }
+  .Level {
+    right: 10px;
+    bottom: 220px;
   }
 }
