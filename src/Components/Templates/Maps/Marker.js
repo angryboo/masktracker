@@ -11,10 +11,11 @@ function Marker({ map }) {
   const { kakao } = window;
   useEffect(() => {
     const markersPosition = state.stores.map(
-      ({ name, lat, lng, remain_stat }) => ({
+      ({ name, lat, lng, remain_stat, code }) => ({
         title: name,
         latlng: new kakao.maps.LatLng(lat, lng),
         remain_stat,
+        code,
       }),
     );
 
@@ -58,11 +59,11 @@ function Marker({ map }) {
         );
 
         const marker = new kakao.maps.Marker({
-          title: store.title,
+          title: store.code,
           position: store.latlng,
           image: markerImage,
         });
-
+        // console.log(marker);
         marker.setMap(mapObj);
         markers.push(marker);
       });
@@ -86,6 +87,12 @@ function Marker({ map }) {
         infoWindow.open(map, marker);
       });
     });
+    // markers.forEach((marker) => {
+    //   kakao.maps.event.addListener(marker, 'click', () => {
+    //     console.log(marker);
+    //     const $storeList = document.querySelector('.store');
+    //   });
+    // });
 
     return () => {
       markers.forEach((marker) => {
