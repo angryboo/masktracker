@@ -15,7 +15,7 @@ body * {
   background-color: rgb(27, 40, 83);
 }
 .Logo {
-  width: 30%;
+  width: 300px;
 }
 .Logo h1, h2 {
   display: inline-block;
@@ -35,7 +35,7 @@ body * {
 }
 
 .Search {
-  width: 50%;
+  width: 500px;
 }
 .Search input{
   padding: 9px;
@@ -64,10 +64,10 @@ body * {
 .Search button:hover {
   background-color: rgba(255, 255, 255, 1)
 }
-.about {
+.About {
   display: inline-block;
   text-align: right;
-  width: 20%;
+  width: 120px;
   color: #fff;
 }
 
