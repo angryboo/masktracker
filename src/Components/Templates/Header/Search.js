@@ -10,8 +10,14 @@ function Search() {
   };
   const handleClick = () => {
     if (!inputRef.current.value) return;
-    // console.log(searchState);
+    console.log(searchState);
     getAddress(searchState.inputState);
+    inputRef.current.value = '';
+  };
+  const handleKeyUp = (code) => {
+    if (code !== 13 || !inputRef.current.value) return;
+    getAddress(searchState.inputState);
+    inputRef.current.value = '';
   };
 
   return (
@@ -22,6 +28,9 @@ function Search() {
         ref={inputRef}
         onChange={() => {
           handleChange(inputRef.current.value);
+        }}
+        onKeyUp={(e) => {
+          handleKeyUp(e.keyCode);
         }}
         // value={LocalSearch}
       />
