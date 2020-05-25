@@ -4,6 +4,7 @@ import { stores } from '../API/StoresAPI';
 
 const useMapFetch = () => {
   const [state, dispatch] = useReducer(mapReducer, initialState);
+  // const { kakao } = window;
 
   const getStores = async (lat, lon, rad) => {
     dispatch({ type: 'LOADING' });
@@ -49,12 +50,19 @@ const useMapFetch = () => {
     });
   };
 
+  const setMap = (map) => {
+    dispatch({
+      type: 'SETMAP',
+      map,
+    });
+  };
+
   // 마운트 시점에 초기 위치 마스크 판매처 취득
   useEffect(() => {
     getStores(state.latitude, state.longitude, state.radius);
   }, [state.latitude, state.longitude, state.radius]);
 
-  return [state, getStores, getLocation, getRange];
+  return [state, getStores, getLocation, getRange, setMap];
 };
 
 export default useMapFetch;

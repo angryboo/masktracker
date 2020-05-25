@@ -6,19 +6,13 @@ export const MapContext = createContext(null);
 
 // eslint-disable-next-line import/prefer-default-export
 export function MapProvider({ children }) {
-  const [
-    state,
-    getStores,
-    getLocation,
-    getRange,
-    getThisRadius,
-  ] = useMapFetch();
+  const [state, getStores, getLocation, getRange, setMap] = useMapFetch();
   const ContextValue = {
     state,
     getStores,
     getLocation,
     getRange,
-    getThisRadius,
+    setMap,
   };
   return (
     <MapContext.Provider value={ContextValue}>{children}</MapContext.Provider>
