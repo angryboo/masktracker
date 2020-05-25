@@ -5,7 +5,7 @@ import Search from './Search';
 
 function Header() {
   return (
-    <header className="Header">
+    <header className="Header Clearfix">
       <Logo />
       <Search />
       <div className="About">about</div>
