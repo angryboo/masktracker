@@ -43,6 +43,14 @@ function Main() {
     console.log(data.result.accessToken);
   };
 
+  const gps = () => {
+    console.log(
+      navigator.geolocation.getCurrentPosition((position) => {
+        console.log(position);
+      }),
+    );
+  };
+
   return (
     <div className="Test">
       테스트용 컴포넌트입니다.
@@ -94,6 +102,13 @@ function Main() {
         }}
       >
         토큰취득
+      </button>
+      <button
+        onClick={() => {
+          console.log(gps());
+        }}
+      >
+        gps
       </button>
     </div>
   );

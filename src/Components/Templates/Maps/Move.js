@@ -4,11 +4,18 @@ import { SearchContext } from '../../../ContextAPI/SearchContext';
 
 function Move({ map, moveToSearch }) {
   const { searchState } = useContext(SearchContext);
-  // const { kakao } = window;
+  const { kakao } = window;
   useEffect(() => {
     console.log(searchState.selectLocation);
     console.dir(moveToSearch);
     console.dir(map);
+    console.dir(kakao.maps.Map.prototype.panTo);
+
+    // const moveLatLon = new kakao.maps.LatLng(
+    //   searchState.selectLocation.latitude,
+    //   searchState.selectLocation.longitude,
+    // );
+    // kakao.maps.Map.prototype.panTo(moveLatLon);
 
     // const panTo = () => {
     //   // 이동할 위도 경도 위치를 생성합니다
@@ -16,7 +23,7 @@ function Move({ map, moveToSearch }) {
     //     searchState.selectLocation.latitude,
     //     searchState.selectLocation.longitude,
     //   );
-    //   map.panTo(moveLatLon);
+    //   kakao.maps.Map.prototype.panTo(moveLatLon);
     // };
 
     // panTo();
