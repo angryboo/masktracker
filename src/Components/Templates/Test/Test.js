@@ -8,7 +8,7 @@ import '../../Pages/Main.css';
 import { token } from '../../../API/Token';
 
 function Main() {
-  const { state, getRange } = useContext(MapContext);
+  const { state } = useContext(MapContext);
   const { searchState, getLocation } = useContext(SearchContext);
 
   const obj = {
@@ -61,7 +61,7 @@ function Main() {
       >
         현재 mapState 보기
       </button>
-      <button
+      {/* <button
         onClick={() => {
           getRange(500);
         }}
@@ -81,7 +81,7 @@ function Main() {
         }}
       >
         범위 1000m 변경
-      </button>
+      </button> */}
       <button
         onClick={() => {
           console.log(searchState);
