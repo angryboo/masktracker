@@ -1,15 +1,30 @@
-// import React, { useEffect, useContext } from 'react';
-// import '../../Pages/Main.css';
-// import { MapContext } from '../../../ContextAPI/MapContext';
+import React, { useEffect, useContext } from 'react';
+import '../../Pages/Main.css';
+import { SearchContext } from '../../../ContextAPI/SearchContext';
 
-// function Move({ map }) {
-//   const { state } = useContext(MapContext);
-//   const { kakao } = window;
-//   useEffect(() => {
-//     return () => {};
-//   }, []);
+function Move({ map, moveToSearch }) {
+  const { searchState } = useContext(SearchContext);
+  // const { kakao } = window;
+  useEffect(() => {
+    console.log(searchState.selectLocation);
+    console.dir(moveToSearch);
+    console.dir(map);
 
-//   return <></>;
-// }
+    // const panTo = () => {
+    //   // 이동할 위도 경도 위치를 생성합니다
+    //   const moveLatLon = new kakao.maps.LatLng(
+    //     searchState.selectLocation.latitude,
+    //     searchState.selectLocation.longitude,
+    //   );
+    //   map.panTo(moveLatLon);
+    // };
 
-// export default Move;
+    // panTo();
+    return () => {};
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchState.selectLocation]);
+
+  return <></>;
+}
+
+export default Move;
