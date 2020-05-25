@@ -7,6 +7,7 @@ import Overlay from './Overlay';
 import Marker from './Marker';
 import Level from './Level';
 import MapEvent from './MapEvent';
+import Move from './Move';
 
 function Map() {
   const { getLocation } = useContext(MapContext);
@@ -30,21 +31,21 @@ function Map() {
 
     // 맵 드래그 완료 시 3번째 인수로 전달 한 콜백 실행
     mapEvent.addListener(map, 'dragend', callback);
-    setState({ map });
+
+    const moveToSearch = (lat, lon) => {
+      // 이동할 위도 경도 위치를 생성합니다
+      const moveLatLon = new kakao.maps.LatLng(lat, lon);
+      map.panTo(moveLatLon);
+    };
+
+    setState({ map, moveToSearch });
+    console.log(_map);
   }, []);
-
-  // const panTo = () => {
-  //   // 이동할 위도 경도 위치를 생성합니다
-  //   const moveLatLon = new kakao.maps.LatLng(33.45058, 126.574942);
-
-  //   // 지도 중심을 부드럽게 이동시킵니다
-  //   // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
-  //   _map.map.panTo(moveLatLon);
-  // };
 
   return (
     <>
       <MapEvent />
+      <Move map={_map.map} moveToSearch={_map.moveToSearch} />
       <Marker map={_map.map} />
       <Overlay map={_map.map} />
       <Level map={_map.map} />
