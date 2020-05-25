@@ -4,14 +4,19 @@
 /* eslint-disable camelcase */
 import React, { useEffect, useContext } from 'react';
 import '../../Pages/Main.css';
-import { MapContext } from '../../../ContextAPI/MapContext';
+// import { MapContext } from '../../../ContextAPI/MapContext';
+import { SearchContext } from '../../../ContextAPI/SearchContext';
 
 function StoreListItem({ store }) {
-  const { state } = useContext(MapContext);
+  // const { state } = useContext(MapContext);
+  const { searchState } = useContext(SearchContext);
 
   useEffect(() => {
-    // console.log(state.stores);
-  }, [state.stores]);
+    if (searchState.selectMarker === store.code) {
+      console.log(store);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchState.selectMarker]);
 
   const $StoreList = document.querySelector('.MaskList');
 
