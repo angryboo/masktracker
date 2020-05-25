@@ -133,27 +133,36 @@ body * {
   box-shadow: 5px 5px 5px 1px rgba(152, 152, 152, 0.1);
   cursor: pointer;
   transition: height 300ms;
-  height: 120px;
 }
 .StoreActive {
   transition: height 300ms;
   height: 300px;
 }
-.Store .Mask-emoji {
+
+.Store h4 {
+  display: block;
+  width: 150px;
+  height: 35px;
+  margin-right: 10px;
+  font-size: 22px;
+  /* background-color: salmon; */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; 
+}
+.Stock {
+  background-color: salmon;
+}
+.Mask-emoji {
   width: 24px;
   margin-bottom: -5px;
   margin-right: 8px;
 }
-.Store h4 {
-  display: inline;
-  font-size: 20px;
-  margin-right: 10px;
-}
-.Store .Stock {
+.StockValue {
   font-size: 18px;
   font-weight: 600;
-  
 }
+
 .Store .Date {
   display: block;
   font-size: 14px;
@@ -189,10 +198,7 @@ body * {
   padding: 15px;
   border-radius: 3px;
 }
-.MarkerList li * {
-  display: inline-block;
 
-}
 .MarkerList img {
   width: 30px;
   margin-right: 5px;

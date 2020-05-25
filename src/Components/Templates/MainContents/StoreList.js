@@ -65,13 +65,17 @@ function StoreList() {
               onClick={storeDetail}
             >
               <h4>{name}</h4>
-              <img
-                src="https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/face-with-medical-mask.png"
-                alt="mask"
-                className="Mask-emoji"
-              />
-              <span className="Stock">{stock}</span>
-              <span className="Date">입고시간 : {stock_at}</span>
+              <div className="Stock">
+                <img
+                  src="https://i7.pngguru.com/preview/886/128/891/surgical-mask-emoji-surgery-health-care-crying-emoji.jpg"
+                  alt="mask"
+                  className="Mask-emoji"
+                />
+                <span className="StockValue">{stock}</span>
+              </div>
+              <span className="Date">
+                {stock_at !== null ? `입고시간 : ${stock_at}` : ''}
+              </span>
               <span className="Addr">{addr}</span>
             </li>
           ))

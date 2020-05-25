@@ -12,6 +12,12 @@ function Search() {
     if (!inputRef.current.value) return;
     console.log(searchState);
     getAddress(searchState.inputState);
+
+    // const moveLatLon = new kakao.maps.LatLng(33.45058, 126.574942);
+    // map.panTo(moveLatLon);
+    // console.log(map);
+    // console.log(map.panTo);
+
     inputRef.current.value = '';
   };
   const handleKeyUp = (code) => {
