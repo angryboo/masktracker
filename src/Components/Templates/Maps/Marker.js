@@ -61,7 +61,7 @@ function Marker({ map }) {
         );
 
         const marker = new kakao.maps.Marker({
-          title: store.code,
+          title: store.title,
           position: store.latlng,
           image: markerImage,
         });
@@ -73,22 +73,33 @@ function Marker({ map }) {
 
     generateMaker(map);
 
-    let iwContent = '';
+    // markers.forEach((marker) => {
+    //   kakao.maps.event.addListener(marker, 'click', () => {
+    //     // console.log(marker);
+    //     const $storeList = document.querySelector('.store');
+    //   });
+    // });
 
-    const iwRemoveable = true;
+    // let iwContent = '';
 
-    markers.forEach((marker) => {
-      kakao.maps.event.addListener(marker, 'click', () => {
-        iwContent = marker.mc;
+    // const iwRemoveable = true;
 
-        const infoWindow = new kakao.maps.InfoWindow({
-          content: iwContent,
-          removable: iwRemoveable,
-        });
+    // markers.forEach((marker) => {
+    //   kakao.maps.event.addListener(marker, 'click', () => {
+    //     iwContent = `<div class="popup">${marker.mc}</div>`;
 
-        infoWindow.open(map, marker);
-      });
-    });
+    //     const infoWindow = new kakao.maps.InfoWindow({
+    //       content: `<strong>${iwContent}</strong>`,
+    //       // removable: iwRemoveable,
+    //     });
+
+    //     infoWindow.open(map, marker);
+
+    //     // console.log(infoWindow);
+    //   });
+    // });
+    // const $InfoPopup = document.querySelector('.popup');
+    // console.log($InfoPopup);
     // markers.forEach((marker) => {
     //   kakao.maps.event.addListener(marker, 'click', () => {
     //     console.log(marker);

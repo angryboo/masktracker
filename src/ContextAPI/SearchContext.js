@@ -6,10 +6,17 @@ export const SearchContext = createContext(null);
 
 // eslint-disable-next-line import/prefer-default-export
 export function SearchProvider({ children }) {
-  const [searchState, getLocation, getAddress, changeInput] = useSearchFetch();
+  const [
+    searchState,
+    moveToTarget,
+    getSearchLocation,
+    getAddress,
+    changeInput,
+  ] = useSearchFetch();
   const ContextValue = {
     searchState,
-    getLocation,
+    moveToTarget,
+    getSearchLocation,
     getAddress,
     changeInput,
   };

@@ -142,14 +142,11 @@ body * {
   line-height: 1.7;
   background-color: #fff;
   box-shadow: 5px 5px 5px 1px rgba(152, 152, 152, 0.1);
-  cursor: pointer;
+  /* cursor: pointer; */
   border-radius: 3px;
-  transition: height 300ms;
+
 }
-.StoreActive {
-  transition: height 300ms;
-  height: 300px;
-}
+
 
 .Store h4 {
   display: block;
@@ -214,15 +211,17 @@ body * {
   z-index: 99;
   padding: 15px;
   border-radius: 3px;
+  
 }
 
 .MarkerList img {
   width: 30px;
   margin-right: 5px;
+  vertical-align: middle;
 }
 .MarkerName {
-  margin-top: 13px;
-  vertical-align: top;
+  /* padding-top: 25px;
+  vertical-align: top; */
 }
 .Level {
   position: fixed;
@@ -267,7 +266,21 @@ body * {
     padding-bottom: 10px;
   }
   .MarkerList {
-    top: 120px;
+    position: absolute;
+    top: 113px;
+    width: calc(100% - 370px);
+    padding: 8px 15px 8px 25px;
+  }
+  .MarkerList li {
+    float: left;
+    width: 97px;
+  }
+  .MarkerList img {
+    width: 23px;
+    margin-right: 5px;
+  }
+  .MarkerName {
+    font-size: 14px;
   }
 }
 /* ----- MOBILE DEVICE ----- */
@@ -291,14 +304,35 @@ body * {
   .About {
     display: none;
   }
+  .MainContents {
+    height: 100%;
+  }
+  .MaskListWrapper {
+    height: 100vh;
+  }
   #map {
     width: 100%;
     height: 55vh;
   }
   .MarkerList {
-    top: 120px;
+    position: absolute;
+    top: 112px;
+    width: 100%;
+    padding: 8px 15px 8px 25px;
+  }
+  .MarkerList li {
+    float: left;
+    width: 97px;
+  }
+  .MarkerList img {
+    width: 23px;
+    margin-right: 5px;
+  }
+  .MarkerName {
+    font-size: 14px;
   }
   .Level {
+    position: absolute;
     right: 10px;
     bottom: 220px;
   }
