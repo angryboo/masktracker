@@ -14,13 +14,13 @@ function Marker({ map }) {
   let imageSrc = '';
 
   const plentyMarker =
-    'https://raw.githubusercontent.com/songseungeun/mask-stores/feature-content/src/img/marker-p.png';
+    'https://raw.githubusercontent.com/songseungeun/masktracker/feature-content/src/Components/Img/marker-p.png';
   const someMarker =
-    'https://raw.githubusercontent.com/songseungeun/mask-stores/feature-content/src/img/marker-s.png';
+    'https://raw.githubusercontent.com/songseungeun/masktracker/feature-content/src/Components/Img/marker-s.png';
   const fewMarker =
-    'https://raw.githubusercontent.com/songseungeun/mask-stores/feature-content/src/img/marker-f.png';
+    'https://raw.githubusercontent.com/songseungeun/masktracker/feature-content/src/Components/Img/marker-f.png';
   const defaultMarker =
-    'https://raw.githubusercontent.com/songseungeun/mask-stores/feature-content/src/img/marker-x.png';
+    'https://raw.githubusercontent.com/songseungeun/masktracker/feature-content/src/Components/Img/marker-x.png';
 
   useEffect(() => {
     const markersPosition = state.stores.map(

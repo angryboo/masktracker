@@ -21,7 +21,9 @@ function Radius() {
     <div className="Radius Clearfix">
       <span className="RadiusSelect">반경 선택</span>
       <ul className="RadiusList">
-        <li onClick={(e) => handleClick(500, e)}>500m</li>
+        <li className="RadiusActive" onClick={(e) => handleClick(500, e)}>
+          500m
+        </li>
         <li onClick={(e) => handleClick(700, e)}>700m</li>
         <li onClick={(e) => handleClick(1000, e)}>1km</li>
       </ul>
