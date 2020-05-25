@@ -12,6 +12,7 @@
 import React, { useEffect, useContext } from 'react';
 import '../../Pages/Main.css';
 import { MapContext } from '../../../ContextAPI/MapContext';
+import StoreListItem from './StoreListItem';
 
 function StoreList() {
   const { state } = useContext(MapContext);
@@ -44,13 +45,13 @@ function StoreList() {
 
   storeList.sort((stockA, stockB) => stockA.sort - stockB.sort);
 
-  const $StoreList = document.querySelector('.MaskList');
+  // const $StoreList = document.querySelector('.MaskList');
 
-  const storeDetail = ({ target }) => {
-    [...$StoreList.children].forEach(($Store) => {
-      $Store.classList.toggle('StoreActive', $Store === target);
-    });
-  };
+  // const storeDetail = ({ target }) => {
+  //   [...$StoreList.children].forEach(($Store) => {
+  //     $Store.classList.toggle('StoreActive', $Store === target);
+  //   });
+  // };
 
   // console.log(storeList);
   return (
@@ -60,33 +61,34 @@ function StoreList() {
       </div>
       <ul className="MaskList">
         {storeList.length ? (
-          storeList.map(({ code, addr, name, stock, stock_at, bgcolor }) => (
-            <li
-              id={code}
-              key={code}
-              className="Store"
-              tabIndex="0"
-              onClick={storeDetail}
-            >
-              <h4>{name}</h4>
-              <div
-                className="Stock"
-                style={{
-                  backgroundColor: `${bgcolor}`,
-                }}
-              >
-                <img
-                  src="https://raw.githubusercontent.com/songseungeun/masktracker/feature-content/src/Components/Img/mask-emoji.png"
-                  alt="mask"
-                  className="Mask-emoji"
-                />
-                <span className="StockValue">{stock}</span>
-              </div>
-              <span className="Date">
-                {stock_at !== null ? `입고시간 : ${stock_at}` : ''}
-              </span>
-              <span className="Addr">{addr}</span>
-            </li>
+          storeList.map((store) => (
+            <StoreListItem key={store.code} store={store} />
+            // <li
+            //   id={code}
+            //   key={code}
+            //   className="Store"
+            //   tabIndex="0"
+            //   onClick={storeDetail}
+            // >
+            //   <h4>{name}</h4>
+            //   <div
+            //     className="Stock"
+            //     style={{
+            //       backgroundColor: `${bgcolor}`,
+            //     }}
+            //   >
+            //     <img
+            //       src="https://raw.githubusercontent.com/songseungeun/masktracker/feature-content/src/Components/Img/mask-emoji.png"
+            //       alt="mask"
+            //       className="Mask-emoji"
+            //     />
+            //     <span className="StockValue">{stock}</span>
+            //   </div>
+            //   <span className="Date">
+            //     {stock_at !== null ? `입고시간 : ${stock_at}` : ''}
+            //   </span>
+            //   <span className="Addr">{addr}</span>
+            // </li>
           ))
         ) : (
           <li>주변에 약국이 없습니다.</li>
