@@ -20,9 +20,7 @@ const useSearchFetch = () => {
     dispatch({ type: 'LOADING' });
     try {
       const locationData = await coordinates.getCoordinates(obj);
-      console.log(locationData);
       if (locationData.status === 200) {
-        console.log(locationData);
         moveToTarget(
           locationData.data.result.posY,
           locationData.data.result.posX,
@@ -102,7 +100,6 @@ const useSearchFetch = () => {
   };
 
   const selectMarker = async (code) => {
-    console.log(code);
     dispatch({
       type: 'MARKER',
       selectMarker: code,

@@ -63,7 +63,7 @@ function Marker({ map }) {
         );
 
         const marker = new kakao.maps.Marker({
-          title: store.title,
+          title: store.code,
           position: store.latlng,
           image: markerImage,
         });
@@ -84,18 +84,17 @@ function Marker({ map }) {
 
     // let iwContent = '';
 
-
     markers.forEach((marker) => {
       kakao.maps.event.addListener(marker, 'click', () => {
         // const obj = { entX: marker.k.Ga, entY: marker.k.Ha };
         selectMarker(marker.mc);
-        console.log(marker);
-        iwContent = marker.mc;
-        const infoWindow = new kakao.maps.InfoWindow({
-          content: iwContent,
-          removable: iwRemoveable,
-        });
-
+        // iwContent = marker.mc;
+        // const infoWindow = new kakao.maps.InfoWindow({
+        //   content: iwContent,
+        //   removable: iwRemoveable,
+        // });
+      });
+    });
 
     //     const infoWindow = new kakao.maps.InfoWindow({
     //       content: `<strong>${iwContent}</strong>`,
