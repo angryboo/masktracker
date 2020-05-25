@@ -1,5 +1,14 @@
-/* eslint-disable object-curly-newline */
+/* eslint-disable array-callback-return */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/no-noninteractive-tabindex */
 /* eslint-disable camelcase */
+/* eslint-disable function-paren-newline */
+/* eslint-disable indent */
+/* eslint-disable implicit-arrow-linebreak */
+/* eslint-disable no-confusing-arrow */
+/* eslint-disable no-nested-ternary */
+/* eslint-disable no-param-reassign */
 import React, { useEffect, useContext } from 'react';
 import '../../Pages/Main.css';
 import { MapContext } from '../../../ContextAPI/MapContext';
@@ -7,31 +16,42 @@ import { MapContext } from '../../../ContextAPI/MapContext';
 function StoreList() {
   const { state } = useContext(MapContext);
 
-  const storeList = state.stores;
   useEffect(() => {
     // console.log(state.stores);
   }, [state.stores]);
 
-  // console.log(state.stores);
+  const storeList = state.stores;
 
-  // 마스크 수량을 렌더링하는 함수
-  const stockValue = (remain_stat) => {
-    switch (remain_stat) {
-      case 'plenty':
-        return '100개 이상';
-      case 'some':
-        return '30개 ~ 100개';
-      case 'few':
-        return '30개 미만';
-      default:
-        return '없습니다';
+  storeList.map((store) => {
+    if (store.remain_stat === 'plenty') {
+      store.stock = '100개 이상';
+      store.sort = 1;
+    } else if (store.remain_stat === 'some') {
+      store.stock = '99개 이하';
+      store.sort = 2;
+    } else if (store.remain_stat === 'few') {
+      store.stock = '30개 이하';
+      store.sort = 3;
+    } else {
+      store.stock = '판매중단';
+      store.sort = 4;
     }
-  };
-  // console.log(StoreList);
+  });
 
-  // const today = new Date();
-  // console.log(today);
-  // 2020/05/23 11:39:00
+  storeList.sort((stockA, stockB) => stockA.sort - stockB.sort);
+
+  // const $storeList = document.querySelectorAll('.store');
+
+  const storeDetail = ({ target }) => {
+    // $storeList.forEach((store) => {
+    //   if (target.id === store.id) store.classList.toggle('active');
+    // });
+    if (!target.matches('.Store')) return;
+    console.log(target);
+    target.classList.toggle('active');
+  };
+
+  // console.log(storeList);
   return (
     <div className="MaskListWrapper">
       <div className="SearchResult">
@@ -39,15 +59,21 @@ function StoreList() {
       </div>
       <ul className="MaskList">
         {storeList.length ? (
-          storeList.map(({ code, addr, name, remain_stat, stock_at }) => (
-            <li key={code} className="Store">
+          storeList.map(({ code, addr, name, stock, stock_at }) => (
+            <li
+              id={code}
+              key={code}
+              className="Store"
+              tabIndex="0"
+              onClick={storeDetail}
+            >
               <h4>{name}</h4>
               <img
                 src="https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/face-with-medical-mask.png"
                 alt="mask"
                 className="Mask-emoji"
               />
-              <span className="Stock">{stockValue(remain_stat)}</span>
+              <span className="Stock">{stock}</span>
               <span className="Date">입고시간 : {stock_at}</span>
               <span className="Addr">{addr}</span>
             </li>

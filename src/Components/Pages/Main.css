@@ -103,9 +103,12 @@ body * {
   color: #fff;
   cursor: pointer;
 }
-.RadiusList li:hover {
+.RadiusList li.RadiusActive {
   background-color: rgb(70, 92, 165);
 }
+/* .aaa {
+  color:red;
+} */
 .MaskListWrapper {
   overflow: auto;
   height: calc(100vh - 170px);
@@ -125,6 +128,13 @@ body * {
   line-height: 1.7;
   background-color: #fff;
   box-shadow: 5px 5px 5px 1px rgba(152, 152, 152, 0.1);
+  cursor: pointer;
+  transition: height 300ms;
+  height: 120px;
+}
+.active {
+  transition: height 300ms;
+  height: 300px;
 }
 .Store .Mask-emoji {
   width: 24px;
