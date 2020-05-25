@@ -15,7 +15,7 @@ body * {
   background-color: rgb(27, 40, 83);
 }
 .Logo {
-  width: 30%;
+  width: 300px;
 }
 .Logo h1, h2 {
   display: inline-block;
@@ -35,7 +35,7 @@ body * {
 }
 
 .Search {
-  width: 50%;
+  width: 500px;
 }
 .Search input{
   padding: 9px;
@@ -64,10 +64,10 @@ body * {
 .Search button:hover {
   background-color: rgba(255, 255, 255, 1)
 }
-.about {
+.About {
   display: inline-block;
   text-align: right;
-  width: 20%;
+  width: 120px;
   color: #fff;
 }
 
@@ -80,8 +80,6 @@ body * {
 }
 .Radius {
   padding: 15px 25px;
-  /* background-color: azure; */
-  /* height: 55px; */
   display: flex;
   font-size: 16px;
 }
@@ -90,7 +88,6 @@ body * {
   padding: 12px 5px 10px 5px;
   margin: 0 5px;
   color: #666;
-  /* background-color: #ccc; */
 }
 .RadiusList {
   display: flex;
@@ -120,37 +117,36 @@ body * {
 }
 .MaskList {
   padding: 4px 17px;
-  /* background-color: rgb(211, 211, 211); */
 }
 
-.store {
+.Store {
   padding: 15px 20px;
   margin-bottom: 15px;
   line-height: 1.7;
   background-color: #fff;
   box-shadow: 5px 5px 5px 1px rgba(152, 152, 152, 0.1);
 }
-.store .mask-emoji {
+.Store .Mask-emoji {
   width: 24px;
   margin-bottom: -5px;
   margin-right: 8px;
 }
-.store h4 {
+.Store h4 {
   display: inline;
   font-size: 20px;
   margin-right: 10px;
 }
-.store .stock {
+.Store .Stock {
   font-size: 18px;
   font-weight: 600;
   
 }
-.store .date {
+.Store .Date {
   display: block;
   font-size: 14px;
   color: #666;
 }
-.store .addr {
+.Store .Addr {
   display: block;
   font-size: 14px;
   color: #666;
