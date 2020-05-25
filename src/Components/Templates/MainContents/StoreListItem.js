@@ -13,18 +13,18 @@ function StoreListItem({ store }) {
     // console.log(state.stores);
   }, [state.stores]);
 
-  const $StoreList = document.querySelector('.MaskList');
+  // const $StoreList = document.querySelector('.MaskList');
 
-  const storeDetail = ({ target }) => {
-    [...$StoreList.children].forEach(($Store) => {
-      $Store.classList.toggle('StoreActive', $Store === target);
-    });
-  };
+  // const storeDetail = ({ target }) => {
+  //   [...$StoreList.children].forEach(($Store) => {
+  //     $Store.classList.toggle('StoreActive', $Store === target);
+  //   });
+  // };
 
   // console.log(storeList);
   return (
     // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-    <li id={store.code} className="Store" tabIndex="0" onClick={storeDetail}>
+    <li id={store.code} className="Store">
       <h4>{store.name}</h4>
       <div
         className="Stock"
