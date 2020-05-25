@@ -6,15 +6,16 @@ import { coordinates } from '../API/CoordinatesAPI';
 
 const useSearchFetch = () => {
   const [serchState, dispatch] = useReducer(searchReducer, initialState);
-  const { state } = useContext(MapContext);
+  const { state, getLocation } = useContext(MapContext);
   const { kakao } = window;
 
   const moveToTarget = (lat, lon) => {
     const moveLatLon = new kakao.maps.LatLng(lat, lon);
     state.map.panTo(moveLatLon);
+    getLocation(lat, lon);
   };
 
-  const getLocation = async (obj) => {
+  const getSearchLocation = async (obj) => {
     dispatch({ type: 'LOADING' });
     try {
       const locationData = await coordinates.getCoordinates(obj);
@@ -61,7 +62,7 @@ const useSearchFetch = () => {
           searchAddress: addressData.data.results.juso,
         });
         if (addressData.data.results.juso.length) {
-          getLocation(addressData.data.results.juso[0]);
+          getSearchLocation(addressData.data.results.juso[0]);
         }
       } else {
         dispatch({
@@ -100,7 +101,13 @@ const useSearchFetch = () => {
     });
   };
 
-  return [serchState, getLocation, getAddress, changeInput, resetLocation];
+  return [
+    serchState,
+    getSearchLocation,
+    getAddress,
+    changeInput,
+    resetLocation,
+  ];
 };
 
 export default useSearchFetch;
