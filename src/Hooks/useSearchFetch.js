@@ -1,10 +1,18 @@
-import { useReducer } from 'react';
+import { useReducer, useContext } from 'react';
+import { MapContext } from '../ContextAPI/MapContext';
 import { initialState, searchReducer } from '../Reducer/SearchReducer';
 import { address } from '../API/AddressAPI';
 import { coordinates } from '../API/CoordinatesAPI';
 
 const useSearchFetch = () => {
-  const [state, dispatch] = useReducer(searchReducer, initialState);
+  const [serchState, dispatch] = useReducer(searchReducer, initialState);
+  const { state } = useContext(MapContext);
+  const { kakao } = window;
+
+  const moveToTarget = (lat, lon) => {
+    const moveLatLon = new kakao.maps.LatLng(lat, lon);
+    state.map.panTo(moveLatLon);
+  };
 
   const getLocation = async (obj) => {
     dispatch({ type: 'LOADING' });
@@ -12,6 +20,10 @@ const useSearchFetch = () => {
       const locationData = await coordinates.getCoordinates(obj);
       if (locationData.status === 200) {
         console.log(locationData);
+        moveToTarget(
+          locationData.data.result.posY,
+          locationData.data.result.posX,
+        );
         dispatch({
           type: 'LOCATION',
           selectLocation: {
@@ -88,7 +100,7 @@ const useSearchFetch = () => {
     });
   };
 
-  return [state, getLocation, getAddress, changeInput, resetLocation];
+  return [serchState, getLocation, getAddress, changeInput, resetLocation];
 };
 
 export default useSearchFetch;

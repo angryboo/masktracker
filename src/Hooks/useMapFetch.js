@@ -4,7 +4,7 @@ import { stores } from '../API/StoresAPI';
 
 const useMapFetch = () => {
   const [state, dispatch] = useReducer(mapReducer, initialState);
-  const { kakao } = window;
+  // const { kakao } = window;
 
   const getStores = async (lat, lon, rad) => {
     dispatch({ type: 'LOADING' });
@@ -50,8 +50,7 @@ const useMapFetch = () => {
     });
   };
 
-  const setMap = (container, options) => {
-    const map = new kakao.maps.Map(container, options);
+  const setMap = (map) => {
     dispatch({
       type: 'SETMAP',
       map,

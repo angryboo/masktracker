@@ -8,13 +8,11 @@ import Overlay from './Overlay';
 import Marker from './Marker';
 import Level from './Level';
 import MapEvent from './MapEvent';
-import Move from './Move';
-
-const { kakao } = window;
 
 function Map() {
-  const { getLocation } = useContext(MapContext);
+  const { getLocation, setMap } = useContext(MapContext);
   const [_map, setState] = useState({});
+  const { kakao } = window;
   const mapEvent = kakao.maps.event;
 
   useEffect(() => {
@@ -35,17 +33,12 @@ function Map() {
     mapEvent.addListener(map, 'dragend', callback);
 
     setState({ map });
+    setMap(map);
   }, []);
-
-  const moveTarget = (lat, lon) => {
-    const moveLatLon = new kakao.maps.LatLng(lat, lon);
-    console.log(moveLatLon);
-  };
 
   return (
     <>
       <MapEvent />
-      <Move map={_map.map} moveTarget={moveTarget} />
       <Marker map={_map.map} />
       <Overlay map={_map.map} />
       <Level map={_map.map} />
